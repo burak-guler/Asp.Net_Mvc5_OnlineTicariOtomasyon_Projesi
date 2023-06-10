@@ -1,0 +1,40 @@
+﻿@model MvcOnlineTicariOtomasyon.Models.Siniflar.Faturalar
+@{
+    ViewBag.Title = "FaturaGetir";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+<h2 style="text-align:center;">Fatura Güncelleme</h2>
+<br />
+@using (Html.BeginForm("FaturaGuncelle", "Fatura", FormMethod.Post, new { @class = "form-group" }))
+{
+    @Html.HiddenFor(x =>x.Faturaid);
+
+    @Html.Label("Seri No")
+    @Html.TextBoxFor(x => x.FaturaSeriNo, new { @class = "form-control", style = "width:30%;" })
+    <br />
+    @Html.Label("Sıra No")
+    @Html.TextBoxFor(x => x.FaturaSiraNo, new { @class = "form-control", style = "width:30%;" })
+    <br />
+    @Html.Label("Tarih")
+    @Html.TextBoxFor(x => x.Tarih, new { @class = "form-control", style = "width:30%;" })
+    <br />
+    @Html.Label("Vergi Dairesi")
+    @Html.TextBoxFor(x => x.VergiDairesi, new { @class = "form-control", style = "width:30%;" })
+    <br />
+    @Html.Label("Saat")
+    @Html.TextBoxFor(x => x.Saat, new { @class = "form-control", style = "width:30%;" })
+    <br />
+    @Html.Label("Toplam")
+    @Html.TextBoxFor(x => x.Toplam, new { @class = "form-control", style = "width:30%;" })
+    <br />
+    @Html.Label("Teslim Eden")
+    @Html.TextBoxFor(x => x.TeslimEden, new { @class = "form-control", style = "width:30%;" })
+    <br />
+    @Html.Label("Teslim Alan")
+    @Html.TextBoxFor(x => x.TeslimAlan, new { @class = "form-control", style = "width:30%;" })
+    <br />
+    <button class="btn btn-warning">Ürünü Güncelle</button>
+}
+
+

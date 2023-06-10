@@ -1,0 +1,52 @@
+﻿@model IEnumerable<MvcOnlineTicariOtomasyon.Models.Siniflar.SinifGrup2>
+
+<div class="card">
+    <div class="card-header">
+        <h3 class="card-title">Departmanlar</h3>
+    </div>
+    <!-- /.card-header -->
+    <div class="card-body p-0">
+        <table class="table table-sm">
+            <thead>
+                <tr>
+                    <th style="width: 10px">No</th>
+                    <th>Departman</th>
+                    <th>Çalışan Sayısı</th>
+                    <th>Progress Bar</th>
+                    <th style="width: 40px">Oran</th>
+                </tr>
+            </thead>
+            <tbody>
+                @{ int sirano = 0; decimal deger1; int sayi = ViewBag.dgr1;}
+
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@{ sirano++;} @sirano</td>
+                        <td>@item.Departman</td>
+                        <td>(@item.Sayi)</td>
+                        <td>
+                            @{ deger1 = (item.Sayi * 100 / sayi);}
+                            @if (item.Sayi >= 5)
+                            {
+                                <div class="progress progress-xs">
+                                    <div class="progress-bar bg-warning" style="width: @deger1%"></div>
+                                </div>
+                            }
+                            @if (item.Sayi < 5)
+                            {
+                                <div class="progress progress-xs">
+                                    <div class="progress-bar bg-danger" style="width: @deger1%"></div>
+                                </div>
+                            }
+
+                        </td>
+                        <td><span class="badge bg-success">%@deger1</span></td>
+                    </tr>
+
+                }
+            </tbody>
+        </table>
+    </div>
+    <!-- /.card-body -->
+</div>

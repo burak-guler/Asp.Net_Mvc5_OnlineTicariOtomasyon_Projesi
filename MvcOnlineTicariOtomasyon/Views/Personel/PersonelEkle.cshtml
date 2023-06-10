@@ -1,0 +1,37 @@
+﻿@model MvcOnlineTicariOtomasyon.Models.Siniflar.Personel
+@{
+    ViewBag.Title = "PersonelEkle";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+<h2 style="text-align:center;">Yeni Personel Ekle</h2>
+<br />
+<form class="form-group" method="post" enctype="multipart/form-data">
+    @Html.Label("Personel Adı")
+    @Html.TextBoxFor(x => x.PersonelAd, new { @class = "form-control", style = "width:30%;" })
+    <br />
+    @Html.Label("Personel Soyadı")
+    @Html.TextBoxFor(x => x.PersonelSoyad, new { @class = "form-control", style = "width:30%;" })
+    <br />
+
+    @Html.Label("Mail")
+    @Html.TextBoxFor(x => x.PersonelMail, new { @class = "form-control", style = "width:30%;" })
+    <br />
+
+    @Html.Label("Tel")
+    @Html.TextBoxFor(x => x.PersonelTel, new { @class = "form-control", style = "width:30%;" })
+    <br />
+    @Html.Label("Departman")
+    @Html.DropDownListFor(x => x.Departmanid, (List<SelectListItem>)ViewBag.dgr1, "Seçiniz..", new { @class = "form-control", style = "width:30%;" })
+    @*@Html.TextBoxFor(x => x.Kategoriid, new { @class = "form-control", style = "width:30%;" })*@
+    <br />
+    @Html.Label("Personel Görsel")
+    @*@Html.TextBoxFor(x => x.PersonelGorsel, new { @class = "form-control", style = "width:30%;" })*@
+    <input type="file" name="PersonelGorsel" class = "form-control", style = "width:30%;" />
+    <br />
+
+
+    <button class="btn btn-primary">Personel  Ekle</button>
+
+</form>
+
