@@ -1,0 +1,36 @@
+﻿@model MvcOnlineTicariOtomasyon.Models.Siniflar.SatisHareket
+@{
+    ViewBag.Title = "YeniSatis";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+<h2 style="text-align:center;">Satış Yapma</h2>
+
+<form class="form-group" method="post">
+    @Html.Label("Ürün Adı")
+    @Html.DropDownListFor(x => x.Urunid, (List<SelectListItem>)ViewBag.dgr2, "Seçiniz..", new { @class = "form-control", style = "width:30%;" })
+    <br />
+    @Html.Label("Müşteri Ad-Soyad")
+    @Html.DropDownListFor(x => x.Cariid, (List<SelectListItem>)ViewBag.dgr3, "Seçiniz..", new { @class = "form-control", style = "width:30%;" })
+    <br />
+    @Html.Label("Personel Ad-Soyad")
+    @Html.DropDownListFor(x => x.Personelid, (List<SelectListItem>)ViewBag.dgr1, "Seçiniz..", new { @class = "form-control", style = "width:30%;" })
+    @*@Html.TextBoxFor(x => x.Kategoriid, new { @class = "form-control", style = "width:30%;" })*@
+    <br />
+    @Html.Label("Adet")
+    @Html.TextBoxFor(x => x.Adet, new { @class = "form-control", style = "width:30%;" })
+    <br />
+    @Html.Label("Fiyat")
+    @Html.TextBoxFor(x => x.Fiyat, new { @class = "form-control", style = "width:30%;" })
+    <br />
+    @Html.Label("Toplam Tutar")
+    @Html.TextBoxFor(x => x.ToplamTutar, new { @class = "form-control", style = "width:30%;" })
+    <br />
+    @Html.Label("Tarih")
+    @Html.TextBoxFor(x => x.Tarih, new { @class = "form-control", style = "width:30%;" })
+    <br />
+    <button class="btn btn-primary">Satış</button>
+
+
+</form>
+

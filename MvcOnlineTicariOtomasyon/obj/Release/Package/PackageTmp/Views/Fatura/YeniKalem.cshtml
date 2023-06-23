@@ -1,0 +1,66 @@
+﻿@model MvcOnlineTicariOtomasyon.Models.Siniflar.FaturaKalem
+@{
+    ViewBag.Title = "YeniKalem";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+<br />
+<h2 style="text-align:center;">Fatura Detay Ekleme</h2>
+<br />
+
+@using (Html.BeginForm("YeniKalem", "Fatura", FormMethod.Post))
+{
+   
+    @Html.Label("Fatura ID")
+    <input type="text" value="@ViewBag.dgr" name="Faturaid" class="form-control" style="width:30%;" />
+    @*@Html.TextBox("NameOfTheTextbox", (String)ViewBag.dgr)
+        @Html.TextBox((string)ViewBag.dgr)*@
+    <br />
+    @Html.Label("Faturaid")
+    @Html.TextBoxFor(x => x.Faturaid, new { @class = "form-control", style = "width:30%;" })
+    <br />
+    <br />
+    @Html.Label("Açıklama")
+    @Html.TextBoxFor(x => x.Aciklama, new { @class = "form-control", style = "width:30%;" })
+    <br />
+    @Html.Label("Miktar")
+    @Html.TextBoxFor(x => x.Miktar, new { @class = "form-control", style = "width:30%;" })
+    <br />
+    @Html.Label("Birim Fiyat")
+    @Html.TextBoxFor(x => x.BirimFiyat, new { @class = "form-control", style = "width:30%;" })
+    <br />
+    @Html.Label("Tutar")
+    @Html.TextBoxFor(x => x.Tutar, new { @class = "form-control", style = "width:30%;" })
+    <br />
+
+
+    <br />
+    <button class="btn btn-primary">Ekle</button>
+}
+@*<form class="form-group" method="post">*@
+
+@*@Html.HiddenFor(ViewBag.dgr)*@
+@*@Html.Label("Fatura ID")*@
+@*<input type="text" value="@ViewBag.dgr" name="Faturaid" class="form-control" style="width:30%;" />*@
+@*@Html.TextBox("NameOfTheTextbox", (String)ViewBag.dgr)
+    @Html.TextBox((string)ViewBag.dgr)*@
+@*<br />
+        @Html.Label("Açıklama")
+        @Html.TextBoxFor(x => x.Aciklama, new { @class = "form-control", style = "width:30%;" })
+        <br />
+        @Html.Label("Miktar")
+        @Html.TextBoxFor(x => x.Miktar, new { @class = "form-control", style = "width:30%;" })
+        <br />
+        @Html.Label("Birim Fiyat")
+        @Html.TextBoxFor(x => x.BirimFiyat, new { @class = "form-control", style = "width:30%;" })
+        <br />
+        @Html.Label("Tutar")
+        @Html.TextBoxFor(x => x.Tutar, new { @class = "form-control", style = "width:30%;" })
+        <br />
+
+
+        <br />
+        <button class="btn btn-primary">Ekle</button>
+
+    </form>*@
+

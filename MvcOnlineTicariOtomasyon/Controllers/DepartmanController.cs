@@ -9,23 +9,28 @@ using MvcOnlineTicariOtomasyon.Models.Siniflar;
 
 namespace MvcOnlineTicariOtomasyon.Controllers
 {
+    [Authorize]
     public class DepartmanController : Controller
     {
         // GET: Departman
         Models.Siniflar.Context c = new Models.Siniflar.Context();
+        
         public ActionResult Index()
         {
             var degerler = c.Departmans.Where(x => x.Durum == true).ToList();
             return View(degerler);
         }
 
+        [Authorize(Roles ="A")]
         [HttpGet]
+       
         public ActionResult DepartmanEkle()
         {
             return View();
         }
 
         [HttpPost]
+        
         public ActionResult DepartmanEkle(Departman D)
         {
             c.Departmans.Add(D);

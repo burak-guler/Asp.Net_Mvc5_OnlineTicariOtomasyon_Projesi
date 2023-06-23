@@ -1,0 +1,71 @@
+﻿@using MvcOnlineTicariOtomasyon.Models.Siniflar
+@model List<SatisHareket>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+<style>
+    th, td {
+        text-align: center;
+    }
+</style>
+<br />
+<h2 style="text-align:center;">Satışlar</h2>
+<br />
+<table id="tbl1" class="table table-bordered" style="margin-top:20px;">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Ürün</th>
+            <th>Müşteri</th>
+            <th>Personel</th>
+            <th>Fiyat</th>
+            <th>Adet</th>
+            <th>Toplam Tutar</th>
+            <th>Tarih</th>
+            <th>Güncelleme</th>
+            <th>Sil</th>
+            <th>Detaylar</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.Satisid</td>
+                <td>@item.Urun.UrunAd</td>
+                <td>@item.Cariler.CariAd @item.Cariler.CariSoyad</td>
+                <td>@item.Personel.PersonelAd @item.Personel.PersonelSoyad</td>
+                <td>@item.Fiyat</td>
+                <td>@item.Adet</td>
+                <td>@item.ToplamTutar</td>
+                <td>@item.Tarih</td>
+                <td><a href="/Satis/SatisGetir/@item.Satisid" class="btn btn-warning">Güncelle</a></td>
+                <td><a href="/Satis/SatisSil/@item.Satisid" class="btn btn-danger">Sil</a></td>
+                <td><a href="/Satis/SatisDetay/@item.Satisid" class="btn btn-default" style="background-color:lightcoral; color:white;">Detaylar</a></td>
+            </tr>
+        }
+
+
+    </tbody>
+</table>
+<a href="/Satis/YeniSatis" class="btn btn-info">Satış Yap</a>
+
+
+<link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.css" rel="stylesheet" />
+<link href="https://cdn.datatables.net/1.10.22/css/dataTables.bootstrap4.min.css" rel="stylesheet" />
+<script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+<script src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/1.10.22/js/dataTables.bootstrap4.min.js"></script>
+
+<script>
+    $('#tbl1').dataTable({
+        "language" : {
+
+            "url": "//cdn.datatables.net/plug-ins/1.10.12/i18n/Turkish.json"
+
+        }
+    });
+</script>

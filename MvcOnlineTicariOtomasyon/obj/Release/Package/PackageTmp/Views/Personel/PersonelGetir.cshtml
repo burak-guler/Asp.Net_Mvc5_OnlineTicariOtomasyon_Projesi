@@ -1,0 +1,33 @@
+﻿@model MvcOnlineTicariOtomasyon.Models.Siniflar.Personel
+@{
+    ViewBag.Title = "PersonelGetir";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+<h2 style="text-align:center;">Personel Güncelle</h2>
+
+@using (Html.BeginForm("PersonelGuncelle", "Personel", FormMethod.Post, new {@enctype="multipart/form-data"}))
+{
+    @Html.HiddenFor(z => z.Personelid)
+    @Html.Label("Personel Adı")
+    @Html.TextBoxFor(z => z.PersonelAd, new { @class = "form-control", style = "width:30%;" })
+    <br />
+    @Html.Label("Personel Soyadı")
+    @Html.TextBoxFor(z => z.PersonelSoyad, new { @class = "form-control", style = "width:30%;" })
+    <br />
+    @Html.Label("Mail")
+    @Html.TextBoxFor(z => z.PersonelMail, new { @class = "form-control", style = "width:30%;" })
+    <br />
+    @Html.Label("Tel")
+    @Html.TextBoxFor(z => z.PersonelTel, new { @class = "form-control", style = "width:30%;" })
+    <br />
+    @Html.Label("Departman")
+    @Html.DropDownListFor(x => x.Departmanid, (List<SelectListItem>)ViewBag.dgr1, "Seçiniz..", new { @class = "form-control", style = "width:30%;" })
+    <br />
+    @Html.Label("Personel Görsel")
+    @*@Html.TextBoxFor(z => z.PersonelGorsel, new { @class = "form-control", style = "width:30%;" })*@
+    <input type="file" name="PersonelGorsel" class = "form-control", style = "width:30%;" />
+    <br />
+    <button class="btn btn-warning">Güncelle</button>
+}
+
